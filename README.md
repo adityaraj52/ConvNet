@@ -59,5 +59,17 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
         * cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 5000
         * cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 1000
 
+## Running Instructions
 
-
+* Go to Directory 'cd ConvNet/TensorFlow/cifar10'
+  * Install python 3 or higher
+  * Install tensorflow (pip install tensorflow)
+  * run 'python3 CreateCifar10Data.py'
+    * This will create cifar10 data structure for the images stored in 
+      input directory 'ConvNet/TensorFlow/Resources/TrainingDataSets/train23' to the
+      output directory 'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_data'
+  * Now, we can run Tensorflow cifar10 module to train and evaluate our newly created cifar10 data sets
+  * run 'python3 cifar10_train.py' --> This will train the Convolutional NN on our data sets and will log the summary in 
+    'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_train'
+  * run 'python3 cifar10_eval.py' --> This will evaluate the Convolutional NN for our trained data sets and will log the summary in
+    'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_eval'
