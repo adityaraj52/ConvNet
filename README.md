@@ -80,12 +80,11 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
      
     > * *Output directory -> 'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_data'*
       
-  * Now, we can run Tensorflow cifar10 module to train and evaluate our newly created cifar10 data sets. 
-  	
-		*	**run 'python3 cifar10_train.py'**
+  * Now, we can run Tensorflow cifar10 module to train and evaluate our newly created cifar10 data sets.  
+		* **run 'python3 cifar10_train.py'**
 
 		> This will train the Convolutional NN on our data sets and will log the
-		summary in directory*'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_train'*
+		 summary in directory*'ConvNet/TensorFlow/Resources/TensorFlowFiles/		 cifar10_train'*
       
       * **run 'python3 cifar10_eval.py'**
 
