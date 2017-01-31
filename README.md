@@ -54,9 +54,9 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
   * This folder holds the modified cifar10 files.
   * Note that this directory is self sufficient and no modules of cifar10 has to be imported from tensorflow otherwise It will not work
   * It has been modified to suit the project requirements such as:
-    *   cifar10_input.NUM_CLASSES = 2
-    *   cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 5000
-    *   cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 1000
- 
+        * cifar10_input.NUM_CLASSES = 2
+        * cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 5000
+        * cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 1000
+
 
 
