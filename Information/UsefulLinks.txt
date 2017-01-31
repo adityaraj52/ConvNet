@@ -2,6 +2,9 @@
 # Useful links
 ################################################################################
 
+# Localhost Tensorflow
+https://www.tensorflow.org/how_tos/summaries_and_tensorboard/
+
 # Example Neural network 
 http://iamtrask.github.io/2015/07/12/basic-python-network/
 
