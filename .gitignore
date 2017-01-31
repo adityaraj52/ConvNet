@@ -11,6 +11,7 @@ ImageManipulation/data/**
 !*.R
 !*.ipynb
 .DS_Store
+!*.md
 
 ## Ignore folders like this: !lib/**
 !Udacity/data/**
