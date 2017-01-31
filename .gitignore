@@ -1,0 +1,20 @@
+*.*
+!*.jpeg
+!*.png
+ImageManipulation/data/**
+!ImageManipulation/data/face.png
+!.gitignore
+!*.py
+!*.txt
+!*.tex
+!*.pdf
+!*.R
+!*.ipynb
+.DS_Store
+
+## Ignore folders like this: !lib/**
+!Udacity/data/**
+DataSets/**
+KaggleCompetition/Resources/DataSets/**
+KaggleCompetition/Resources/BatchFiles/**
+

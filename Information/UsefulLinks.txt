@@ -1,0 +1,62 @@
+################################################################################
+# Useful links
+################################################################################
+
+# Example Neural network 
+http://iamtrask.github.io/2015/07/12/basic-python-network/
+
+# Neural net from scratch
+http://neuralnetworksanddeeplearning.com/chap1.html
+
+# Youtube How neural net Works internally
+https://www.youtube.com/watch?v=AgkfIQ4IGaM
+
+# Complete tutorial for image recognition and neural nets, might be very useful.
+https://www.udacity.com/course/deep-learning--ud730
+
+# Code for the cats vs. dogs competition
+https://github.com/kastnerkyle/kaggle-dogs-vs-cats
+http://fastml.com/classifying-images-with-a-pre-trained-deep-network/
+
+# Code for HandWritten digit classification
+https://www.analyticsvidhya.com/blog/2016/10/an-introduction-to-implementing-neural-networks-using-tensorflow/
+
+# Competition Hosted on HandWritten Digit Classfication
+https://datahack.analyticsvidhya.com/contest/practice-problem-identify-the-digits/
+
+# How to Construct a New Dataset for Retraining using TFRecords
+https://github.com/tensorflow/models/blob/master/inception/README.md#how-to-construct-a-new-dataset-for-retraining
+
+# Code to build data for TFRecords serialisation
+https://github.com/tensorflow/models/blob/master/inception/inception/data/build_image_data.py
+
+# Slides for the cats vs. dogs competition
+http://www.slideshare.net/roelofp/deep-learning-as-a-catdog-detector
+
+################################################################################
+# Image processing
+################################################################################
+
+# For reducing an image to its edges.
+http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_canny/py_canny.html#canny
+
+# Contour
+http://www.scipy-lectures.org/advanced/image_processing/index.html#basic-image
+
+################################################################################
+# Convolutional networks
+################################################################################
+# Convolutional Neural Networks(CNNs/ConvNets)
+http://cs231n.github.io/convolutional-networks/
+
+# Youtube Convolutional Network(All we need to implement)
+https://www.youtube.com/watch?v=FmpDIaiMIeA
+
+################################################################################
+# Others
+################################################################################
+http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/
+https://www.tensorflow.org/versions/r0.11/tutorials/image_recognition/index.html
+http://machinelearningmastery.com/tutorial-first-neural-network-python-keras/
+http://neuralnetworksanddeeplearning.com/chap1.html
+

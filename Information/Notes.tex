@@ -1,0 +1,231 @@
+%%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tgheros}
+\usepackage[defaultmono]{droidmono}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usepackage{hyperref}                   % Links, URLs, etc.
+\usepackage{caption}
+\captionsetup[table]{name=Tabelle}      % 'Table' zu 'Tabelle'
+\usepackage{pdflscape}
+\usepackage{multirow}                   % Merge cells
+\usepackage{hhline}                     % Merge cells
+\usepackage{float}                      % Fix position of tables
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{forest}			% Draw diagrams
+\usepackage{booktabs}
+\usepackage{graphicx}                   % Insert graphics
+\usepackage{pdfpages}			% Include PDF-documents
+\usepackage{enumitem}			% Minimize space between itemize items
+\usepackage{array}			% To get list of graphics
+
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{Feature Modellanalysen - Aufgaben zum 26. Oktober 2016}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+
+% code listing settings
+\usepackage{listings}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+\graphicspath{ {graphics/} }
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{Neural networks with statistical learning}
+
+\author{Sören Schleibaum, TU Clausthal}
+
+\date{26. Oktober 2016}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ideas for a project}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Questions}
+
+\begin{itemize}[noitemsep]
+ \item Which competitions could use a neural network?
+ \item @Aditya: What's your favorite?
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://www.kaggle.com/competitions}{Kaggle competitions}}
+
+I've marked the ones, which I think are interesting, bold.
+
+\begin{itemize}[noitemsep]
+\item \textbf{Outbrain Click Prediction}
+\begin{itemize}[noitemsep]
+  \item Deadline: 18th of January 2017
+  \item Data:
+  \item Task:
+  \item \textbf{Outbrain} is a content discovery platform
+  \item Predict which pieces of content its global base of users are likely to click on in a way that the 
+  recommendation for undiscovered stories will satisfy the individual tastes of users better. 
+  \item Recommendation algorithm
+\end{itemize}
+\item \textbf{Leaf Classification}
+\begin{itemize}[noitemsep]
+  \item Deadline: 28th of February 2017
+  \item Data: Binary leaf images + extracted features
+  \item Task: Build a classifier.
+  \item Automating plant recognition might have many applications, for instance species popoulation tracking and 
+  preservation.
+  \item Use binary leaf images and extracted features to accurately identify 99 species of plants.
+\end{itemize}
+\item House Prices: Advances Regression Techniques
+\begin{itemize}[noitemsep]
+  \item Deadline: 1st of March 2017
+  \item Data:
+  \item Task:
+  \item 79 explanatory variables describing residential homes in Iowa
+  \item Try to predict the final price of each home.
+\end{itemize}
+\item \textbf{Dogs vs. Cats Redux: Kernels Edition}
+\begin{itemize}[noitemsep]
+  \item Deadline: 2nd of March 2017
+  \item Data:
+  \item Task:
+  \item Dog vs. Cat classification problem
+  \item I think it's about image recognition.
+\end{itemize}
+\item Allstate Claims Severity
+\begin{itemize}[noitemsep]
+  \item Deadline: 12th of December 2016
+  \item Data:
+  \item Task:
+  \item Developing automated methods of predicting cost and severity of claims.
+  \item Create an algorithm which accurately predicts claims severity.
+\end{itemize}
+
+\item Transfer Learning on Stack Exchange Tags
+\begin{itemize}[noitemsep]
+  \item Deadline: 25th of March 2017
+  \item Data: Titles, text, ant tags on Stack Exchange questions from six different sites
+  \item Task: Predict tags of unseen physics questions.
+  \item Might involve training an algorithm on a corpus
+\end{itemize}
+
+\item Ghouls, Goblins, and Ghosts... Boo!
+\begin{itemize}[noitemsep]
+  \item Deadline: 1st of December 2017
+  \item Data: 
+  \item Task: Classification 
+  \item Gradient boosting machines
+\end{itemize}
+
+\item \textbf{Facial Keypoints Detection}
+\begin{itemize}[noitemsep]
+  \item Deadline: 31st of December 2016
+  \item Data: 
+  \item Task: Predict keypoint positions on face images. 
+  \item Has some helping introduction and tutorials.
+\end{itemize}
+
+\item \textbf{Can you pair products with people}
+\begin{itemize}[noitemsep]
+  \item Deadline: 21st of December 2016
+  \item Data: 
+  \item Task: Predict which products the customers will use based on past behavior.
+  \item Personalized product recommendation
+\end{itemize}
+
+\end{itemize}
+
+\clearpage
+
+\section{Implementation Steps}
+
+\begin{itemize}
+	
+	\item Normalize all of your images, both for training and testing, to have the same resolution.
+	
+	\item Use gray-scale images, so each pixel would give you just one number.
+	
+	\item Image Thresholding to process image based on intensity.
+	
+	\item Extracting features (e.g., edges) from the image and then using the network on those features. This incorporates prior knowledge.
+	
+	\item Use each pixel value as one input to your network. For instance, if you have images of size 16x16 pixels, your network would have 16*16 = 256 input neurons. The first neuron would see the value of the pixel at (0,0), the second at (0,1), and so on.
+	\par
+	The first neuron would see the value of the pixel at (0,0), the second at (0,1), and so on. Basically you put the image values into one vector and feed this vector into the network. 
+
+\end{itemize}
+
+\end{document}

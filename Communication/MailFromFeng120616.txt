@@ -1,0 +1,34 @@
+Hello,
+
+you should first try to install tensorflow, note that there are CPU and GPU versions for it:
+https://www.tensorflow.org/versions/r0.12/get_started/os_setup.html
+
+here is a simple tutorial of tensorflow for beginners:
+https://www.tensorflow.org/versions/r0.12/tutorials/mnist/beginners/index.html
+
+After reading the simple tutorial, you can try this for Image recognition(python part is ok):
+https://www.tensorflow.org/versions/r0.12/tutorials/image_recognition/index.html
+Then you can try to understand the source code in classify_image.py, it's based on the latest model
+from Google named Inception-v3. The pdf for Inception-v3 is attached in this email.
+You can extract higher level features from Inception-v3 for your own program.
+
+To understand some concepts and definitions of convolutional neural networks, you can refer to Wikipedia:
+https://en.wikipedia.org/wiki/Convolutional_neural_network
+or the notes from a Stanford course:
+http://cs231n.github.io/convolutional-networks/
+or here is a more simple version to introduce convolutional neural networks(maybe too simple, but good as an introduction for beginners) 
+http://colah.github.io/posts/2014-07-Conv-Nets-Modular/    +     http://colah.github.io/posts/2014-07-Understanding-Convolutions/
+
+Here is a website for playing with different parameters of neural networks:
+http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.48488&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+Other open source projects are:
+CNTK from Microsoft
+Theano from University of Montreal
+Caffe from Berkeley
+
+The above things are only suggestions, you can do what you like or read materials you are interested in.
+wish you have fun!
+
+best wishes,
+Feng

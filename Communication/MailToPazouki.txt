@@ -1,0 +1,15 @@
+Dear Mrs. Pazouki,
+
+Aditya Raj and me thought about doing our project on one of the listed competitions. The options are listed in our preferred order.
+
+Do you think participating in one of the competitions and presenting the work to you is feasible for the course 'Neural Networks with Statistical Learning'?
+We are not sure if the third competition is solvable via a neural net.
+
+1. https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition
+2. https://www.kaggle.com/c/ghouls-goblins-and-ghosts-boo
+3. https://www.kaggle.com/c/titanic
+
+Thanks for your time. Looking forward to your reply.
+
+Kind regards
+Sören Schleibaum
