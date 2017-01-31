@@ -89,6 +89,6 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
 
     > This will train the Convolutional NN on our data sets and will log the summary in directory*'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_train'.
     
-    * **run 'python3 cifar10_eval.py'**.
+* **run 'python3 cifar10_eval.py'**.
     
     > This will evaluate the Convolutional NN for our trained data sets and will log the summary in directory: *ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_eval*
