@@ -39,7 +39,7 @@ cifar10_input.NUM_CLASSES = 2
 cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 5000
 cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 1000
 batch_size = 128
-data_set_dir = "../../Resources/TensorFlowFiles/BatchFiles"
+data_set_dir = "../../Resources/TensorFlowFiles/cifar10_data"
 use_fp16 = False
 
 # Global constants describing the CIFAR-10 data set.

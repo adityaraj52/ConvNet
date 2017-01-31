@@ -47,8 +47,8 @@ from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
 
-train_dir = "../../Resources/TensorFlowFiles/EvaluationFiles"
-max_steps = 20
+train_dir = "../../Resources/TensorFlowFiles/cifar10_train"
+max_steps = 1000
 log_device_placement = False
 batch_size = 128
 

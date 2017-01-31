@@ -39,9 +39,10 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
 
         * This folder will hold all the Batchfiles generated from Training data sets and also the training data summary
             Useful for evaluation purposes
-            * ConvNet/Resources
-                * /BatchFiles
-                * /EvaluationFiles
+            * ConvNet/Resources/TensorFlowFiles/
+                * cifar10_data
+                * cifar10_eval
+                * cifar10_train
 
         * This folder will hold the raw images of training data sets.
                               

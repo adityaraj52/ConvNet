@@ -85,7 +85,7 @@ def main():
 
     # Default Input and output directory for the project
     input_dir = "../../Resources/TrainingDataSets/train23"
-    output_dir = "../../Resources/TensorFlowFiles/BatchFiles/cifar-10-batches-bin/"
+    output_dir = "../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/"
 
     # Check for input directory
     Utils.check_directory(input_dir)
@@ -118,7 +118,7 @@ def main():
         the_file.write('cat\ndog')
 
     with tarfile.open(output_dir + '../cifar-10-binary.tar.gz', mode='w:gz') as archive:
-        archive.add('../../Resources/TensorFlowFiles/BatchFiles/', recursive=True)
+        archive.add('../../Resources/TensorFlowFiles/cifar10_data/', recursive=True)
 
 if __name__ == "__main__":
     main()

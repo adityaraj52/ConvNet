@@ -16,5 +16,5 @@ ImageManipulation/data/**
 ## Ignore folders like this: !lib/**
 !Udacity/data/**
 DataSets/**
-KaggleCompetition/Resources/DataSets/**
-KaggleCompetition/Resources/BatchFiles/**
+KaggleCompetition/Resources/TrainingDataSets/**
+KaggleCompetition/Resources/TensorFlowFiles/**

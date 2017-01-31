@@ -41,23 +41,14 @@ import time
 import numpy as np
 import tensorflow as tf
 
-from tensorflow.models.image.cifar10 import cifar10
+import cifar10
 
-FLAGS = tf.app.flags.FLAGS
-
-tf.app.flags.DEFINE_string('eval_dir', '/tmp/cifar10_eval',
-                           """Directory where to write event logs.""")
-tf.app.flags.DEFINE_string('eval_data', 'test',
-                           """Either 'test' or 'train_eval'.""")
-tf.app.flags.DEFINE_string('checkpoint_dir', '/tmp/cifar10_train',
-                           """Directory where to read model checkpoints.""")
-tf.app.flags.DEFINE_integer('eval_interval_secs', 60 * 5,
-                            """How often to run the eval.""")
-tf.app.flags.DEFINE_integer('num_examples', 10000,
-                            """Number of examples to run.""")
-tf.app.flags.DEFINE_boolean('run_once', False,
-                         """Whether to run eval only once.""")
-
+eval_dir = "../../Resources/TensorFlowFiles/cifar10_eval"
+eval_data = 'test'
+checkpoint_dir = "../../Resources/TensorFlowFiles/cifar10_train"
+eval_interval_secs = 60 * 5
+num_examples = 10000
+run_once = False
 
 def eval_once(saver, summary_writer, top_k_op, summary_op):
   """Run Eval once.
@@ -69,7 +60,7 @@ def eval_once(saver, summary_writer, top_k_op, summary_op):
     summary_op: Summary op.
   """
   with tf.Session() as sess:
-    ckpt = tf.train.get_checkpoint_state(FLAGS.checkpoint_dir)
+    ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
     if ckpt and ckpt.model_checkpoint_path:
       # Restores from checkpoint
       saver.restore(sess, ckpt.model_checkpoint_path)
@@ -89,9 +80,9 @@ def eval_once(saver, summary_writer, top_k_op, summary_op):
         threads.extend(qr.create_threads(sess, coord=coord, daemon=True,
                                          start=True))
 
-      num_iter = int(math.ceil(FLAGS.num_examples / FLAGS.batch_size))
+      num_iter = int(math.ceil(num_examples / cifar10.batch_size))
       true_count = 0  # Counts the number of correct predictions.
-      total_sample_count = num_iter * FLAGS.batch_size
+      total_sample_count = num_iter * cifar10.batch_size
       step = 0
       while step < num_iter and not coord.should_stop():
         predictions = sess.run([top_k_op])
@@ -117,7 +108,7 @@ def evaluate():
   """Eval CIFAR-10 for a number of steps."""
   with tf.Graph().as_default() as g:
     # Get images and labels for CIFAR-10.
-    eval_data = FLAGS.eval_data == 'test'
+    eval_data == 'test'
     images, labels = cifar10.inputs(eval_data=eval_data)
 
     # Build a Graph that computes the logits predictions from the
@@ -136,22 +127,22 @@ def evaluate():
     # Build the summary operation based on the TF collection of Summaries.
     summary_op = tf.merge_all_summaries()
 
-    summary_writer = tf.train.SummaryWriter(FLAGS.eval_dir, g)
+    summary_writer = tf.train.SummaryWriter(eval_dir, g)
 
     while True:
       eval_once(saver, summary_writer, top_k_op, summary_op)
-      if FLAGS.run_once:
+      if run_once:
         break
-      time.sleep(FLAGS.eval_interval_secs)
+      time.sleep(eval_interval_secs)
 
 
 def main(argv=None):  # pylint: disable=unused-argument
-  cifar10.maybe_download_and_extract()
-  if tf.gfile.Exists(FLAGS.eval_dir):
-    tf.gfile.DeleteRecursively(FLAGS.eval_dir)
-  tf.gfile.MakeDirs(FLAGS.eval_dir)
+  # cifar10.maybe_download_and_extract()
+  # if tf.gfile.Exists(eval_dir):
+  #   tf.gfile.DeleteRecursively(eval_dir)
+  # tf.gfile.MakeDirs(eval_dir)
   evaluate()
 
 
 if __name__ == '__main__':
-  tf.app.run()
+  main()
