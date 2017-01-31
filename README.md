@@ -35,18 +35,18 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
 
 * Resources
   * This folder holds all the training files and Tensorflow files required for checkpointing and evaluation
-    * ** The folder has to be arranged in the following structure
+    The folder has to be arranged in the following structure
 
-    * ** This folder will hold all the Batchfiles generated from Training data sets and also the training data summary
+    * This folder will hold all the Batchfiles generated from Training data sets and also the training data summary
     Useful for evaluation purposes
-      * ** ConvNet/Resources
+        * ConvNet/Resources
                             /BatchFiles
                             /EvaluationFiles
 
-    * ** This folder will hold the raw images of training data sets.
+    * This folder will hold the raw images of training data sets.
 
-    Note: This data has to be converted into Cifar10 data format using the function Cifar10CreateData.py in 
-    ConvNet/Resources/TensorFlowFiles/Cifar10 directory.
+        * Note: This data has to be converted into Cifar10 data format using the function Cifar10CreateData.py in 
+        ConvNet/Resources/TensorFlowFiles/Cifar10 directory.
                           
-      * ** ConvNet/Resources/TrainingDataSets/train23
+        * ConvNet/Resources/TrainingDataSets/train23
 
