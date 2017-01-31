@@ -18,25 +18,20 @@ class Batch(object):
                           p_num_batches,
                           p_upper_limit_for_batches):
 
-        data = array('B')
         m_input_directory_files = os.listdir(p_input_directory)
         random.shuffle(m_input_directory_files)
         p_lower_limit = 0
         p_range = p_upper_limit_for_batches
 
         for i in range(p_num_batches):
+            #Reset Data array on every iteration
+            data = array('B')
 
             if (p_flag == 0):
                 outputfilename = "data_batch_" + str(i + 1)
 
             elif (p_flag == 1):
                 outputfilename = "test_batch"
-
-                #         if p_flag == 0:
-                #             outputfilename = "training_batch_" + str(i + 1)
-                #
-                #         elif p_flag == 1:
-                #             outputfilename = "testing_batch"
 
             for item in m_input_directory_files[p_lower_limit: p_upper_limit_for_batches]:
                 if item.endswith('.jpg'):
