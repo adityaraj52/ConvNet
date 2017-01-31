@@ -84,7 +84,7 @@ class Batch(object):
 def main():
 
     # Default Input and output directory for the project
-    input_dir = "../../Resources/TrainingDataSets/train23"
+    input_dir = "../../Resources/TrainingDataSets/train1"
     output_dir = "../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/"
 
     # Check for input directory
