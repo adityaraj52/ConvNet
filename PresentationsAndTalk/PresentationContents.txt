@@ -1,14 +1,20 @@
 * Problem Statement
 	* From Images to Classes
+
 * Introduction to DeepLearning
+
 * Layers In DeepLearning
 	* Convolution
 	* RELU
 	* MaxPooling
+
 * TensorFlow
+
 * What tensorflow provides us
 	* Data Structure of Tensorflow
+
 * TensorFlow data format (Size of data)
+
 * Implementation in tensorflow
 	* TensorFlow Methods
 	* Tensorflow Cifar10 Lifecycle
@@ -26,6 +32,7 @@
 			* Coordinator and QueueRunner
 			* Cifar10-Binary Files (Not 32*32*3 but 3073 * 1)
 			* Adding Summaries to Event Files
+
 * Results
 	* Training Results
 	* Evaluation Results
