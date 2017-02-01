@@ -96,7 +96,7 @@ def main():
     # Constants for taking number of batches for training
     # and maximum number of elements in a batch
     num_batch = 5
-    p_upper_limit_for_batches = 10000
+    p_upper_limit_for_batches = 5000
     structure = Batch()
 
     # Create Training Batches

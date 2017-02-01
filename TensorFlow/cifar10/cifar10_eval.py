@@ -47,7 +47,7 @@ eval_dir = "../../Resources/TensorFlowFiles/cifar10_eval"
 eval_data = 'test'
 checkpoint_dir = "../../Resources/TensorFlowFiles/cifar10_train"
 eval_interval_secs = 60 * 5
-num_examples = 10000
+num_examples = 5000
 run_once = False
 
 def eval_once(saver, summary_writer, top_k_op, summary_op):

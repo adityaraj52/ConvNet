@@ -36,8 +36,8 @@ These parameters control how dat ahas to be trained
 '''
 
 cifar10_input.NUM_CLASSES = 2
-cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 50000
-cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 10000
+cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 25000
+cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 5000
 batch_size = 128
 data_set_dir = "../../Resources/TensorFlowFiles/cifar10_data"
 use_fp16 = False
