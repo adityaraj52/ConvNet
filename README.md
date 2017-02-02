@@ -75,7 +75,7 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
 
     > This will take raw images stored in directory 
     
-    > * *Input directory -> 'ConvNet/TensorFlow/Resources/TrainingDataSets/train23'*
+    > * *Input directory -> 'ConvNet/TensorFlow/Resources/TrainingDataSets/train1'*
     
     > and create cifar10 data structure in:
      
