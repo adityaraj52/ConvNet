@@ -106,6 +106,9 @@ def main():
     Utils.check_directory(cifar10_raw_dir)
 
     # Create a output directory if it does not exist
+    Utils.create_directory(input_dir)
+
+    # Create a output directory if it does not exist
     Utils.create_directory(output_dir)
 
     # Constants for taking number of batches for training
