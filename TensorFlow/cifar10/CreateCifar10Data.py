@@ -2,6 +2,9 @@ from array import *
 import random
 import tarfile
 from Helper import *
+#!/usr/bin/python
+from PIL import Image
+import os, sys
 
 # TODO(Sören): Pickle file should be accessed from data_directory
 
@@ -10,6 +13,18 @@ class Batch(object):
 
     def __init__(self):
         pass
+
+    def resize(self, originDir, destDir, dimensionX, dimensionY):
+        dirs = os.listdir(originDir)
+        for item in dirs:
+            if os.path.isfile(originDir+item):
+                im = Image.open(originDir+item)
+                f, e = os.path.splitext(originDir+item)
+                imResize = im.resize((dimensionX,dimensionY), Image.ANTIALIAS)
+                imResize.save(destDir + f[len(originDir):]	+ '_resized.jpg', 'JPEG', quality=100)
+                # print(imResize)
+            else:
+                print("could not resize")
 
     def convert_to_binary(self,
                           p_flag,
@@ -82,13 +97,13 @@ class Batch(object):
 
 
 def main():
-
     # Default Input and output directory for the project
-    input_dir = "../../Resources/TrainingDataSets/train1"
+    cifar10_raw_dir = "../../Resources/TrainingDataSets/train0/"
+    input_dir = "../../Resources/TrainingDataSets/train1/"
     output_dir = "../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/"
 
     # Check for input directory
-    Utils.check_directory(input_dir)
+    Utils.check_directory(cifar10_raw_dir)
 
     # Create a output directory if it does not exist
     Utils.create_directory(output_dir)
@@ -98,6 +113,12 @@ def main():
     num_batch = 5
     p_upper_limit_for_batches = 5000
     structure = Batch()
+
+    # Resizing Training Data sets
+    structure.resize(cifar10_raw_dir, 
+                    input_dir,
+                    32,
+                    32);
 
     # Create Training Batches
     structure.convert_to_binary(0,
