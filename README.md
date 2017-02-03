@@ -75,13 +75,15 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
 
     > This will take raw images stored in directory 
     
-    > * *Input directory -> 'ConvNet/TensorFlow/Resources/TrainingDataSets/train1'*
+    > * *Cifar10 Input directory -> 'ConvNet/TensorFlow/Resources/TrainingDataSets/train0'
+
+    > and create the resized image in directory
+
+    > * *resized image  directory -> 'ConvNet/TensorFlow/Resources/TrainingDataSets/train1'
     
-    > and create cifar10 data structure in:
+    > and then create cifar10 data structure in:
      
     > * *Output directory -> 'ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_data'*. 
-
-
       
 * Now, we can run Tensorflow cifar10 module to train and evaluate our newly created cifar10 data sets.
 
