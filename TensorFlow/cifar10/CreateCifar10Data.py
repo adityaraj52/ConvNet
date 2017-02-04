@@ -2,148 +2,136 @@ from array import *
 import random
 import tarfile
 from Helper import *
-#!/usr/bin/python
-from PIL import Image
-import os, sys
-
-# TODO(Sören): Pickle file should be accessed from data_directory
+from settings import *
+import pickle
 
 
 class Batch(object):
 
-    def __init__(self):
-        pass
+    def __init__(self, image_information, output_file_name, flag,
+                 input_directory, output_directory, num_batches,
+                 upper_limit_for_batches):
 
-    def resize(self, originDir, destDir, dimensionX, dimensionY):
-        dirs = os.listdir(originDir)
-        for item in dirs:
-            if os.path.isfile(originDir+item):
-                im = Image.open(originDir+item)
-                f, e = os.path.splitext(originDir+item)
-                imResize = im.resize((dimensionX,dimensionY), Image.ANTIALIAS)
-                imResize.save(destDir + f[len(originDir):]	+ '_resized.jpg', 'JPEG', quality=100)
-                # print(imResize)
-            else:
-                print("could not resize")
+        self.image_information = image_information
+        self.output_file_name = output_file_name
+        self.p_flag = flag
+        self.p_input_directory = input_directory
+        self.p_output_directory = output_directory
+        self.p_num_batches = num_batches
+        self.p_range = upper_limit_for_batches
 
-    def convert_to_binary(self,
-                          p_flag,
-                          p_input_directory,
-                          p_output_directory,
-                          p_num_batches,
-                          p_upper_limit_for_batches):
+    def convert_to_binary(self):
 
-        m_input_directory_files = os.listdir(p_input_directory)
-        random.shuffle(m_input_directory_files)
+        # TODO(Sören Schleibaum): Name resolving is not solved in a nice way.
+        image_information = self.image_information + '/train12017-02-02-18:18:34.pickle'
+
+        with open(image_information, 'rb') as f:
+            # The protocol version used is detected automatically, so we do not
+            # have to specify it.
+            data = pickle.load(f)
+
+        filenames = data['filenames']
+
+        # random.shuffle(m_input_directory_files)
         p_lower_limit = 0
-        p_range = p_upper_limit_for_batches
+        p_upper_limit_for_batches = self.p_range
 
-        for i in range(p_num_batches):
+        if self.p_flag == 1:
+            p_lower_limit = 20000
+            p_upper_limit_for_batches = p_lower_limit + self.p_range
 
-            '''
-            Reinitialising data array everytime we create a new batch
-            '''
-            data = array('B')
-            # print(len(data))
+        for i in range(self.p_num_batches):
 
-            if (p_flag == 0):
-                outputfilename = "data_batch_" + str(i + 1)
+            print('Creating a batch from ', p_lower_limit, ' to ', p_upper_limit_for_batches)
+            data = self.create_batches(i, filenames, p_lower_limit, p_upper_limit_for_batches)
 
-            elif (p_flag == 1):
-                outputfilename = "test_batch"
+            # Write data to file
+            output_file = open(self.p_output_directory + self.output_file_name + str(i+1) + '.bin', 'wb')
+            data.tofile(output_file)
+            output_file.close()
 
-            for item in m_input_directory_files[p_lower_limit: p_upper_limit_for_batches]:
-                if item.endswith('.jpg'):
-                    # print(item)
-
-                    # grab the image
-                    im = Image.open(os.path.join(p_input_directory, item))
-                    pix = im.load()
-
-                    # store the class name from look at path
-                    if ("cat" in item):
-                        class_name = 0
-                    elif ("dog" in item):
-                        class_name = 1
-                    else:
-                        print("Incorrect Label")
-
-                    # get image into byte array#
-                    # create array of bytes to hold stuff
-                    # first append the class_name byte
-
-                    data.append(class_name)
-
-                    # then write the rows
-                    # Extract RGB from pixels and append
-
-                    for color in range(0, 3):
-                        for x in range(0, 32):
-                            for y in range(0, 32):
-                                data.append(pix[x, y][color])
-                                # print(type(pix[x, y][color]))
-
-                    output_file = open(p_output_directory + outputfilename + ".bin", 'wb')
-                    data.tofile(output_file)
-                    output_file.close()
-
-                    ############################################
-                    # Increase lower limit on every iteration#
-                    ############################################
-            # print(len(data))
+            # Increase lower limit on every iteration
             p_lower_limit = p_upper_limit_for_batches
-            p_upper_limit_for_batches += p_range
-            print("Created a batch from ", p_lower_limit, " to ", p_upper_limit_for_batches)
+            p_upper_limit_for_batches += self.p_range
+
+    def create_batches(self, index, filenames, p_lower_limit, p_upper_limit_for_batches):
+
+        '''Reinitialising data array everytime we create a new batch'''
+        data = array('B')
+
+        # self.output_file_name += str(index + 1)
+
+        # if self.p_flag == 0:
+        #     outputfilename = 'data_batch_' + str(index + 1)
+        #
+        # elif self.p_flag == 1:
+        #     outputfilename = 'test_batch'
+
+        for item in filenames[p_lower_limit: p_upper_limit_for_batches]:
+
+            # Get label of the image
+            if 'cat' in item:
+                class_name = 0
+            elif 'dog' in item:
+                class_name = 1
+            data.append(class_name)
+
+            # Grab the image
+            item += '.jpg'
+            image = Utils.load_image(os.path.join(self.p_input_directory, item))
+            image = array('B', image)
+            data += image
+
+        return data
 
 
 def main():
-    # Default Input and output directory for the project
-    cifar10_raw_dir = "../../Resources/TrainingDataSets/train0/"
-    input_dir = "../../Resources/TrainingDataSets/train1/"
-    output_dir = "../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/"
 
-    # Check for input directory
-    Utils.check_directory(cifar10_raw_dir)
-
-    # Create a output directory if it does not exist
-    Utils.create_directory(input_dir)
-
-    # Create a output directory if it does not exist
-    Utils.create_directory(output_dir)
-
-    # Constants for taking number of batches for training
-    # and maximum number of elements in a batch
-    num_batch = 5
-    p_upper_limit_for_batches = 5000
-    structure = Batch()
-
-    # Resizing Training Data sets
-    structure.resize(cifar10_raw_dir, 
-                    input_dir,
-                    32,
-                    32);
+    image_information = global_path_to_other_results
+    output_file_name = 'data_batch_'
+    flag = 0
+    input_directory = global_path_to_train_data
+    output_directory = global_path_to_cifar10batches
+    num_batches = 5
+    upper_limit_for_batches = 4000
+    structure = Batch(image_information,
+                        output_file_name,
+                        flag,
+                        input_directory,
+                        output_directory,
+                        num_batches,
+                        upper_limit_for_batches)
 
     # Create Training Batches
-    structure.convert_to_binary(0,
-                                input_dir,
-                                output_dir,
-                                num_batch,
-                                p_upper_limit_for_batches)
+    structure.convert_to_binary()
 
-    # Create Testing Batches
-    structure.convert_to_binary(1,
-                                input_dir,
-                                output_dir,
-                                1,
-                                p_upper_limit_for_batches)
+
+    image_information = global_path_to_other_results
+    output_file_name = 'test_batch'
+    # Flag 1 means that the lower limit is fixed
+    flag = 1
+    input_directory = global_path_to_train_data
+    output_directory = global_path_to_cifar10batches
+    num_batches = 1
+    upper_limit_for_batches = 5000
+    structure = Batch(image_information,
+                        output_file_name,
+                        flag,
+                        input_directory,
+                        output_directory,
+                        num_batches,
+                        upper_limit_for_batches)
+
+    # Create Training Batches
+    structure.convert_to_binary()
 
     # Create Tar File File of the directory
-    with open(output_dir + "batches_meta.txt", 'w+') as the_file:
+    with open(output_directory + '/' + 'batches_meta.txt', 'w+') as the_file:
         the_file.write('cat\ndog')
 
-    with tarfile.open(output_dir + '../cifar-10-binary.tar.gz', mode='w:gz') as archive:
-        archive.add('../../Resources/TensorFlowFiles/cifar10_data/', recursive=True)
+    with tarfile.open(output_directory + '/' + '../cifar-10-binary.tar.gz', mode='w:gz') as archive:
+        archive.add(global_path_to_cifar10data + '/', recursive=True)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 

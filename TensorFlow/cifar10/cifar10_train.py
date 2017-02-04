@@ -48,7 +48,11 @@ import tensorflow as tf
 
 
 train_dir = "../../Resources/TensorFlowFiles/cifar10_train"
-max_steps = 100001
+<<<<<<< HEAD
+max_steps = 100000
+=======
+max_steps = 50001
+>>>>>>> baf4afd1c8a5e7791f8a3ba5bf08eb69cdaf0f5b
 log_device_placement = False
 batch_size = 128
 

@@ -3,6 +3,7 @@ import numpy as np
 import os
 from PIL import Image
 import pickle
+import datetime
 
 
 ###################################################################################
@@ -91,3 +92,15 @@ class Utils(object):
         if not os.path.exists(directory):
             raise SystemExit(message)
 
+    @staticmethod
+    def get_current_date():
+        """Returns a string which holds a manipulated from of the
+        current date and time."""
+
+        now = datetime.datetime.now()
+
+        # Prettify the string
+        now = str(now).replace(' ', '-')
+        now = now[:-7]
+
+        return now
