@@ -3,6 +3,8 @@ from PIL import Image
 import csv
 import random
 import pickle
+
+# Set global variables
 from settings import *
 
 

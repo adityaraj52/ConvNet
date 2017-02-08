@@ -2,8 +2,10 @@ from array import *
 import random
 import tarfile
 from Helper import *
-from settings import *
 import pickle
+
+# Set global variables
+from settings import *
 
 
 class Batch(object):

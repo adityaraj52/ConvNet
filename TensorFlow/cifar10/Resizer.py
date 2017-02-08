@@ -1,30 +1,32 @@
 from PIL import Image
+
+# Set global variables
 from settings import *
 
 class Resizer(object):
 
-    def __init__(self, originDir, destDir, dimensionX, dimensionY):
-        self.originDir = originDir
-        self.destDir = destDir
-        self.dimensionX = dimensionX
-        self.dimensionY = dimensionY
+    def __init__(self, origin_dir, dest_dir, dimension_x, dimension_y):
+        self.origin_dir = origin_dir
+        self.dest_dir = dest_dir
+        self.dimension_x = dimension_x
+        self.dimension_y = dimension_y
 
 
     def resize_image(self):
         """Resize all images within a given folder."""
 
-        dirs = os.listdir(self.originDir)
+        dirs = os.listdir(self.origin_dir)
         for item in dirs:
 
-            filename = os.path.join(self.originDir, item)
+            filename = os.path.join(self.origin_dir, item)
 
             if os.path.isfile(filename):
 
                 im = Image.open(filename)
                 f, e = os.path.splitext(filename)
 
-                im_resize = im.resize((self.dimensionX, self.dimensionY), Image.ANTIALIAS)
-                im_resize.save(self.destDir + f[len(self.originDir):] + '.jpg', 'JPEG', quality=100)
+                im_resize = im.resize((self.dimension_x, self.dimension_y), Image.ANTIALIAS)
+                im_resize.save(self.dest_dir + f[len(self.origin_dir):] + '.jpg', 'JPEG', quality=100)
 
             else:
                 print("could not resize")
@@ -32,7 +34,7 @@ class Resizer(object):
 
 def main():
 
-    # # Resize train data
+    # Resize train data
     origin_dir = global_path_to_original_train_data
     dest_dir = global_path_to_train_data
     dimension_x = dimension_y = 32

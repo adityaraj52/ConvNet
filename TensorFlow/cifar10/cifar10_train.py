@@ -46,8 +46,11 @@ import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
+# Set global variables
+from settings import *
 
-train_dir = "../../Resources/TensorFlowFiles/cifar10_train"
+
+train_dir = global_path_to_cifar10train
 max_steps = 100000
 log_device_placement = False
 batch_size = 128

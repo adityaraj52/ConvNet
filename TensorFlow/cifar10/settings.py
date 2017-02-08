@@ -1,6 +1,7 @@
 import os
 from Helper import Utils
 
+'''Global path variables are set in here.'''
 '''Be aware that a change of this file might affect several other files.'''
 
 # Data directories

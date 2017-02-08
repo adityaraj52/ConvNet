@@ -43,9 +43,12 @@ import tensorflow as tf
 
 import cifar10
 
-eval_dir = "../../Resources/TensorFlowFiles/cifar10_eval"
+# Set global variables
+from settings import *
+
+eval_dir = global_path_to_cifar10eval
 eval_data = 'test'
-checkpoint_dir = "../../Resources/TensorFlowFiles/cifar10_train"
+checkpoint_dir = global_path_to_cifar10train
 eval_interval_secs = 60 * 5
 num_examples = 5000
 run_once = False

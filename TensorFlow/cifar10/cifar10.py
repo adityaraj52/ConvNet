@@ -29,6 +29,9 @@ import tensorflow as tf
 
 from tensorflow.models.image.cifar10 import cifar10_input
 
+# Set global variables
+from settings import *
+
 '''
 Modifying cifar10_input size parameters
 
@@ -39,7 +42,7 @@ cifar10_input.NUM_CLASSES = 2
 cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 25000
 cifar10_input.NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 5000
 batch_size = 128
-data_set_dir = "../../Resources/TensorFlowFiles/cifar10_data"
+data_set_dir = global_path_to_cifar10data
 use_fp16 = False
 
 # Global constants describing the CIFAR-10 data set.
