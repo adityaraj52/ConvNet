@@ -13,6 +13,7 @@ ImageManipulation/data/**
 .DS_Store
 !*.md
 !*.pptx
+!*.odt
 
 ## Ignore folders like this: !lib/**
 !Udacity/data/**
