@@ -14,6 +14,7 @@ ImageManipulation/data/**
 !*.md
 !*.pptx
 !*.odt
+!*.docx
 
 ## Ignore folders like this: !lib/**
 !Udacity/data/**
