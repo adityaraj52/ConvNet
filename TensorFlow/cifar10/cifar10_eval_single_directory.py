@@ -14,18 +14,17 @@ import cifar10
 from settings import *
 
 
-class Predicter():
+class PredictImage():
     def __init__(self, name):
 
         self.width = 32
         self.height = 32
-        self.eval_dir = global_path_to_cifar10eval
+        self.eval_dir = global_path_to_cifar10_eval_single_directory
         self.eval_data = 'test'
         self.checkpoint_dir = global_path_to_cifar10train100k
         self.eval_interval_secs = 60 * 5
         self.num_examples = 1
         self.run_once = True
-        # self.batch_size = cifar10.batch_size
         self.batch_size = 1
 
     def eval_once(self, saver, summary_writer, top_k_op, summary_op, logits):
@@ -130,12 +129,3 @@ class Predicter():
                 if self.run_once:
                     break
                 # time.sleep(self.eval_interval_secs)
-
-
-def main():
-    predictor = Predicter("")
-    predictor.evaluate()
-
-
-if __name__ == "__main__":
-    main()

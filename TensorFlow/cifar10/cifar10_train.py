@@ -49,7 +49,6 @@ import tensorflow as tf
 # Set global variables
 from settings import *
 
-
 train_dir = global_path_to_cifar10train
 max_steps = 100000
 log_device_placement = False

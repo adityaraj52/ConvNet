@@ -37,6 +37,7 @@ class Resizer(object):
 def main():
 
     # Resize train data
+    # Utils.check_directory(global_path_to_original_train_data)
     # origin_dir = global_path_to_original_train_data
     # dest_dir = global_path_to_train_data
     # dimension_x = dimension_y = 32
@@ -45,6 +46,7 @@ def main():
     # resizer.resize_image()
 
     # Resize test data
+    Utils.check_directory(global_path_to_original_test_data)
     origin_dir = global_path_to_original_test_data
     dest_dir = global_path_to_test_data
     dimension_x = dimension_y = 32

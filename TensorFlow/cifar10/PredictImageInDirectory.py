@@ -1,18 +1,17 @@
 from Helper import Utils
 from array import *
-from settings import global_path_to_cifar10batches
-from settings import global_path_to_test_data
+from settings import *
 import random
 from Helper import *
 from os import listdir
-from Predict_cifar_images import Predicter
+from cifar10_eval_single_directory import PredictImage
 
 
 class evalaute_single_image():
     def __init__(self, p_input_directory, p_item):
 
         self.input_directory = p_input_directory
-        self.output_directory = global_path_to_cifar10batches
+        self.output_directory = global_path_to_cifar10predictSingleImageBatch
         self.item_name = p_item
         self.output_file_name = "test_batch"
 
@@ -48,5 +47,5 @@ for item in dirs:
         print(item)
         predict = evalaute_single_image(image_input_directory, item)
         predict.create_binary_file()
-        p = Predicter("abc")
+        p = PredictImage("")
         p.evaluate()
