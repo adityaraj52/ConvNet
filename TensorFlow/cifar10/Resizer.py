@@ -22,6 +22,8 @@ class Resizer(object):
 
             if os.path.isfile(filename):
 
+                print(filename)
+
                 im = Image.open(filename)
                 f, e = os.path.splitext(filename)
 
@@ -35,12 +37,12 @@ class Resizer(object):
 def main():
 
     # Resize train data
-    origin_dir = global_path_to_original_train_data
-    dest_dir = global_path_to_train_data
-    dimension_x = dimension_y = 32
+    # origin_dir = global_path_to_original_train_data
+    # dest_dir = global_path_to_train_data
+    # dimension_x = dimension_y = 32
 
-    resizer = Resizer(origin_dir, dest_dir, dimension_x, dimension_y)
-    resizer.resize_image()
+    # resizer = Resizer(origin_dir, dest_dir, dimension_x, dimension_y)
+    # resizer.resize_image()
 
     # Resize test data
     origin_dir = global_path_to_original_test_data

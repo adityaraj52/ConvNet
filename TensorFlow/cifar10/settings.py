@@ -10,11 +10,13 @@ global_path_to_original_test_data = '../../Resources/TrainingDataSets/test1'
 global_path_to_train_data = '../../Resources/TrainingDataSets/train2'
 global_path_to_test_data = '../../Resources/TrainingDataSets/test2'
 
+
 # Result directories
 global_path_to_other_results = '../../Resources/OtherResults'
 global_path_to_cifar10data = '../../Resources/TensorFlowFiles/cifar10_data'
 global_path_to_cifar10eval = '../../Resources/TensorFlowFiles/cifar10_eval'
 global_path_to_cifar10train = '../../Resources/TensorFlowFiles/cifar10_train'
+global_path_to_cifar10train100k = '../../Resources/TensorFlowFiles/cifar10_train/Standard100K/'
 global_path_to_cifar10batches = '../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/'
 
 # TODO(Sören Schleibaum): Has to be removed.

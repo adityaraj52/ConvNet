@@ -14,9 +14,9 @@ class ListUtils(object):
 
         deque_length = len(deque)
 
-        result = np.ndarray(shape=(deque_length,1))
+        result = np.ndarray(shape=(deque_length, 1))
 
-        for i in range(0,deque_length):
+        for i in range(0, deque_length):
             result[i] = deque.pop()
 
         return result
@@ -35,7 +35,7 @@ class ListUtils(object):
 
 
 ###################################################################################
-class Utils(object):
+class Utils():
 
     @staticmethod
     def get_path(data=''):
@@ -104,3 +104,8 @@ class Utils(object):
         now = now[:-7]
 
         return now
+
+    # @staticmethod
+    # def display_image(path_to_image):
+
+

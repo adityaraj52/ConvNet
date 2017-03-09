@@ -172,8 +172,6 @@ def main():
     # Display status information
     print(name + ' is done.')
 
-
-
 if __name__ == "__main__":
     main()
 

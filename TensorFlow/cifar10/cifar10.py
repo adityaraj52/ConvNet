@@ -27,7 +27,7 @@ import tarfile
 from six.moves import urllib
 import tensorflow as tf
 
-from tensorflow.models.image.cifar10 import cifar10_input
+import cifar10_input
 
 # Set global variables
 from settings import *
@@ -35,7 +35,7 @@ from settings import *
 '''
 Modifying cifar10_input size parameters
 
-These parameters control how dat ahas to be trained
+These parameters control how data has to be trained
 '''
 
 cifar10_input.NUM_CLASSES = 2
