@@ -68,7 +68,7 @@ class PredictImage():
 
                     predictions = sess.run([top_k_op])
                     
-                    # print(sess.run([logits[0]]))
+                    print(sess.run([logits[0]]))
                     # print(sess.run([tf.shape(logits)]))
                     # print(sess.run(tf.argmax(logits[0], 0)))
                     
