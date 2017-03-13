@@ -15,6 +15,7 @@ ImageManipulation/data/**
 !*.pptx
 !*.odt
 !*.docx
+!*.pickle
 
 ## Ignore folders like this: !lib/**
 !Udacity/data/**
