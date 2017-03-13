@@ -129,8 +129,8 @@ class predict_files():
 def main():
     predict_file = predict_files();
 
-    predict_file.evaluate_directory_of_images();
-    #predict_file.evaluate_test_batch_image();
+    #predict_file.evaluate_directory_of_images();
+    predict_file.evaluate_test_batch_image();
 
 if __name__ == '__main__':
     main()
