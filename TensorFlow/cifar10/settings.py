@@ -17,7 +17,7 @@ global_path_to_cifar10data = '../../Resources/TensorFlowFiles/cifar10_data'
 global_path_to_cifar10eval = '../../Resources/TensorFlowFiles/cifar10_eval'
 global_path_to_cifar10train = '../../Resources/TensorFlowFiles/cifar10_train/cifar10_train'
 global_path_to_cifar10train100k = '../../Resources/TensorFlowFiles/cifar10_train/Standard100K/'
-global_path_to_cifar10_eval_single_directory = '../../Resources/TensorFlowFiles/cifar10_eval_single_directory/'
+global_path_to_cifar10eval_single_directory = '../../Resources/TensorFlowFiles/cifar10eval_single_directory/'
 
 global_path_to_cifar10batches = '../../Resources/TensorFlowFiles/cifar10_data/cifar-10-batches-bin/'
 global_path_to_cifar10predictSingleImageBatch = '../../Resources/TensorFlowFiles/cifar10_data/cifar10_predict_single_image_batch/'
