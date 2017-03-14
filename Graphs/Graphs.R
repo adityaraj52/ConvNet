@@ -104,19 +104,19 @@ labels = c("0k","20k","40k","60k","80k","100k")
 axis(1, at=seq(0,100000,20000), labels = labels)
 
 # Add smoothed line of Standard100k
-smoothingSpline = smooth.spline(x1, y1, spar=0.35)
+smoothingSpline = smooth.spline(x1, y1, spar=0.5)
 lines(smoothingSpline,lwd=2, col='gray70')
 
 # Add smoothed line of AddedConvLayer
-smoothingSpline = smooth.spline(x2, y2, spar=0.35)
+smoothingSpline = smooth.spline(x2, y2, spar=0.5)
 lines(smoothingSpline,lwd=2, col='deepskyblue')
 
 # Add smoothed line of Standard
-smoothingSpline = smooth.spline(x3, y3, spar=0.35)
+smoothingSpline = smooth.spline(x3, y3, spar=0.5)
 lines(smoothingSpline,lwd=2, col='firebrick')
 
 # Add smoothed line of 28x28 images
-smoothingSpline = smooth.spline(x4, y4, spar=0.35)
+smoothingSpline = smooth.spline(x4, y4, spar=0.5)
 lines(smoothingSpline,lwd=2, col='goldenrod1')
 
 # Add a legend to the plot
