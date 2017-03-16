@@ -7,6 +7,7 @@ import random
 from Helper import *
 from os import listdir
 from Predict_cifar_images import Predicter
+import os
 
 class evalaute_single_image():
     def __init__(self, p_input_directory, p_item):
@@ -55,10 +56,21 @@ class predict_files():
     def evaluate_directory_of_images(self):
         
         #Provide the input directory here:
-        image_input_directory = global_path_to_test_data
+        image_input_directory = global_path_to_random_images
+        
+        ################################################
+        # For Mac we need to delete deafult 'DS_Store' file
+        deletefile = os.path.join(global_path_to_test_data, ".DS_Store")
+        if(os.path.isfile(deletefile)):
+            os.remove(deletefile)
         
         dirs = os.listdir(image_input_directory)
-        dirs = sorted(dirs,key=lambda x: int(os.path.splitext(x)[0]))
+        
+        #################################################
+        # For seeing the results in sorted Order
+
+        # dirs = sorted(dirs,key=lambda x: int(os.path.splitext(x)[0]))
+        
         save_to_file = "../../Resources/EvaluateImageResults/test_images.txt"
 
         with open(save_to_file, "w") as myfile:
@@ -105,7 +117,7 @@ class predict_files():
             myfile.write("")
 
         for item in test_images:
-                item = item + '_resized' + '.jpg'
+                item = item + '.jpg'
                 
                 if "cat" in item:
                     class_name = 0
@@ -129,8 +141,10 @@ class predict_files():
 def main():
     predict_file = predict_files();
 
-    #predict_file.evaluate_directory_of_images();
-    predict_file.evaluate_test_batch_image();
+    predict_file.evaluate_directory_of_images();
+    #predict_file.evaluate_test_batch_image();
+    #predict_file.evaluate_single_image();
+    
 
 if __name__ == '__main__':
     main()

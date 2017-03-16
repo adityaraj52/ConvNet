@@ -63,11 +63,11 @@ class Batch(object):
 
         # self.output_file_name += str(index + 1)
 
-        # if self.p_flag == 0:
-        #     outputfilename = 'data_batch_' + str(index + 1)
-        #
-        # elif self.p_flag == 1:
-        #     outputfilename = 'test_batch'
+        if self.p_flag == 0:
+            outputfilename = 'data_batch_' + str(index + 1)
+        
+        elif self.p_flag == 1:
+            outputfilename = 'test_batch'
 
         for item in filenames[p_lower_limit: p_upper_limit_for_batches]:
 
@@ -94,8 +94,8 @@ def main():
     flag = 0
     input_directory = global_path_to_train_data
     output_directory = global_path_to_cifar10batches
-    num_batches = 1
-    upper_limit_for_batches = 128
+    num_batches = 5
+    upper_limit_for_batches = 4000
     structure = Batch(image_information,
                         output_file_name,
                         flag,
@@ -105,26 +105,26 @@ def main():
                         upper_limit_for_batches)
 
     # Create Training Batches
-    structure.convert_to_binary()
+    #structure.convert_to_binary()
 
 
-    # image_information = global_path_to_other_results
-    # output_file_name = 'test_batch'
-    # # Flag 1 means that the lower limit is fixed
-    # flag = 1
-    # input_directory = global_path_to_train_data
-    # output_directory = global_path_to_cifar10batches
-    # num_batches = 1
-    # upper_limit_for_batches = 5000
-    # structure = Batch(image_information,
-    #                     output_file_name,
-    #                     flag,
-    #                     input_directory,
-    #                     output_directory,
-    #                     num_batches,
-    #                     upper_limit_for_batches)
+    image_information = global_path_to_other_results
+    output_file_name = 'test_batch'
+    # Flag 1 means that the lower limit is fixed
+    flag = 1
+    input_directory = global_path_to_train_data
+    output_directory = global_path_to_cifar10batches
+    num_batches = 1
+    upper_limit_for_batches = 5000
+    structure = Batch(image_information,
+                        output_file_name,
+                        flag,
+                        input_directory,
+                        output_directory,
+                        num_batches,
+                        upper_limit_for_batches)
 
-    # Create Training Batches
+    # Create Test Batches
     structure.convert_to_binary()
 
     # Create Tar File File of the directory

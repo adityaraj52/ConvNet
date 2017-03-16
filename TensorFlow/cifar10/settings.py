@@ -9,6 +9,8 @@ global_path_to_original_train_data = '../../Resources/TrainingDataSets/train1'
 global_path_to_original_test_data = '../../Resources/TrainingDataSets/test1'
 global_path_to_train_data = '../../Resources/TrainingDataSets/train2'
 global_path_to_test_data = '../../Resources/TrainingDataSets/test2'
+global_path_to_original_random_images = '../../Resources/TrainingDataSets/randomimage1'
+global_path_to_random_images = '../../Resources/TrainingDataSets/randomimage2'
 
 
 # Result directories

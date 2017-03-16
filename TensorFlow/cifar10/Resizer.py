@@ -15,6 +15,12 @@ class Resizer(object):
     def resize_image(self):
         """Resize all images within a given folder."""
 
+        ################################################
+        # For Mac we need to delete deafult 'DS_Store' file
+        deletefile = os.path.join(self.origin_dir, ".DS_Store")
+        if(os.path.isfile(deletefile)):
+            os.remove(deletefile)
+
         dirs = os.listdir(self.origin_dir)
         for item in dirs:
 
@@ -36,7 +42,7 @@ class Resizer(object):
 
 def main():
 
-    # Resize train data
+    # #Resize train data
     # Utils.check_directory(global_path_to_original_train_data)
     # origin_dir = global_path_to_original_train_data
     # dest_dir = global_path_to_train_data
@@ -45,10 +51,19 @@ def main():
     # resizer = Resizer(origin_dir, dest_dir, dimension_x, dimension_y)
     # resizer.resize_image()
 
-    # Resize test data
-    Utils.check_directory(global_path_to_original_test_data)
-    origin_dir = global_path_to_original_test_data
-    dest_dir = global_path_to_test_data
+    # # Resize test data
+    # Utils.check_directory(global_path_to_original_test_data)
+    # origin_dir = global_path_to_original_test_data
+    # dest_dir = global_path_to_test_data
+    # dimension_x = dimension_y = 32
+
+    # resizer = Resizer(origin_dir, dest_dir, dimension_x, dimension_y)
+    # resizer.resize_image()
+
+    # Resize random images data
+    Utils.check_directory(global_path_to_original_random_images)
+    origin_dir = global_path_to_original_random_images
+    dest_dir = global_path_to_random_images
     dimension_x = dimension_y = 32
 
     resizer = Resizer(origin_dir, dest_dir, dimension_x, dimension_y)
