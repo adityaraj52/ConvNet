@@ -4,6 +4,10 @@ This repository contains code on which the submissions to the competition 'Dogs 
 The project is part of the course 'Neural nets with statistical learning' of the [TU Clausthal](http://www.tu-clausthal.de/). To fulfil the task a neural network is used.
 The language mainly used to complete the task is [Python 3](https://docs.python.org/3/).
 
+# Contributors
+
+Aditya Raj and https://gitlab.com/Cranefly
+
 ## Folder structure
 *	Helper_Files
 	* Communication 
@@ -103,4 +107,4 @@ The language mainly used to complete the task is [Python 3](https://docs.python.
     
     > This will evaluate the Convolutional NN for our trained data sets and will log the summary in directory: *ConvNet/TensorFlow/Resources/TensorFlowFiles/cifar10_eval*
     
-    * To predict single image. **'run python3 PredictImageInDirectory.py'**
+    * To predict single image. **'run python3 evaluate_single_image.py'**
